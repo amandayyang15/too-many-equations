@@ -1,7 +1,15 @@
 import * as React from "react"
+import { create, all } from 'mathjs'
+
+
+const config = { }
+const math = create(all, config)
+
+const answer = (math.sqrt(-4).toString()) // 2i
+
 
 const pageStyles = {
-  color: "#232129",
+  color: "#0B0B0B",
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
@@ -56,7 +64,7 @@ const descriptionStyle = {
 }
 
 const docLink = {
-  text: "Documentation",
+  text: "Hey",
   url: "https://www.gatsbyjs.com/docs/",
   color: "#8954A8",
 }
@@ -135,6 +143,8 @@ const IndexPage = () => {
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
         update in real-time. 😎
       </p>
+      <p style={paragraphStyles}>The answer is:</p>
+      <p style={paragraphStyles}>The answer is: {answer}</p>
       <ul style={listStyles}>
         <li style={docLinkStyle}>
           <a
