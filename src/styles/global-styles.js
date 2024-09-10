@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
 
     * {
         background-color: var(--dark-bg);
+        color: white;
     }
 
     html {
@@ -43,6 +44,10 @@ const GlobalStyle = createGlobalStyle`
         line-height: 0rem;
     }
 
+    div {
+        width: 100%;
+    }
+
     .subheading {
         font-family: 'Figtree', sans-serif;
         font-weight: 400;
@@ -55,7 +60,7 @@ const GlobalStyle = createGlobalStyle`
         padding-top: 50px;
         margin: 0px auto;
         width: 100%;
-        max-width: 1200px;
+        max-width: 1000px;
         padding: 0 45px;
         display: flex;
         flex-direction: column;
@@ -65,18 +70,43 @@ const GlobalStyle = createGlobalStyle`
     .page-section {
         margin: 0px auto;
         width: 100%;
-        max-width: 1200px;    }
+    }
 
     textarea {
         width: 100%;
-        background-color: var(--light-grey);
         background: var(--light-grey-lvl1);
         resize: none;
         overflow: auto;
         border: none;
         color: white;
         outline: 0px none transparent;
-        margin-top: 10px;
+        spellcheck: false;
+        autocomplete: off;
+        autocorrect: off;
+        autocapitalize: off;
+    }
+
+    .input-section {
+     margin: 0px auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .equations-section {
+        width: 100%;
+    }
+
+    .variables-section {
+        width: 50%;
+    }
+
+    .buttons-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 200px;
     }
 
 `;
