@@ -1,44 +1,64 @@
-import * as React from "react"
-import H2HeadingGroup from "../styles/layout"
+import React, { useEffect, useState } from "react";
+import H2HeadingGroup from "../styles/layout";
+import { solveEquations } from "../components/calculation";
 
-const Equations = () => {
+const Equations = ({ equations, setEquations }) => {
     return (
-        <div className="equations-section" >
-        {H2HeadingGroup("Equations", "One equation per line")}
-        <textarea id="equations" rows="10" cols="50" spellcheck="false"></textarea>
+        <div className="equations-section">
+            {H2HeadingGroup("Equations", "One equation per line")}
+            <textarea
+                id="equations"
+                rows="10"
+                cols="50"
+                spellCheck="false"
+                value={equations}
+                onChange={(e) => setEquations(e.target.value)}
+            ></textarea>
         </div>
-    )
-}
+    );
+};
 
-const Variables = () => {
+const Variables = ({ variables, setVariables }) => {
     return (
         <div className="variables-section">
-        {H2HeadingGroup("Variables", "One variable per line")}
-        <textarea id="variables" rows="10" cols="50"></textarea>
+            {H2HeadingGroup("Variables", "One variable per line")}
+            <textarea
+                id="variables"
+                rows="10"
+                cols="50"
+                value={variables}
+                onChange={(e) => setVariables(e.target.value)}
+            ></textarea>
         </div>
-    )
-}
+    );
+};
 
-const Buttons = () => {
+const Buttons = ({ onSubmit }) => {
     return (
         <div className="buttons-section">
             {H2HeadingGroup(" ", " ")}
-            <button id="submit">Submit</button>
-            <button id="clear">Clear</button>
+            <button id="submit" onClick={onSubmit}>Submit</button>
+            <button id="clear" onClick={() => window.location.reload()}>Clear</button>
         </div>
-    )
-}
+    );
+};
 
-const InputSection = () => {
+const InputSection = ({ setSolution }) => {
+    const [equations, setEquations] = useState("");
+    const [variables, setVariables] = useState("");
+
+    const handleSubmit = () => {
+        const solution = solveEquations(equations, variables);
+        setSolution(solution);
+    };
+
     return (
         <div className="input-section">
-            {Equations()}
-            {Variables()}
-            {Buttons()}
+            <Equations equations={equations} setEquations={setEquations} />
+            <Variables variables={variables} setVariables={setVariables} />
+            <Buttons onSubmit={handleSubmit} />
         </div>
-    )
-}
-
-
+    );
+};
 
 export default InputSection;
