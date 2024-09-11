@@ -44,6 +44,12 @@ const GlobalStyle = createGlobalStyle`
         line-height: 0rem;
     }
 
+    .input-error {
+        font-weight: 400;
+        font-style: italic;
+        color: var(--turqoise)
+    }
+
     div {
         width: 100%;
     }

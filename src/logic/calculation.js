@@ -6,7 +6,7 @@ export default function SolveEquations(equations, variables) {
 
     console.log("Equations:", eqns);
 
-    return eqns;
+    return "eqns";
 
     // try {
     //     const solution = math.lusolve(eqns, vars);

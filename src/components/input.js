@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import H2HeadingGroup from "../styles/layout";
 import SolveEquations from "../logic/calculation.js";
+import InputHandling from "../logic/input-handling.js";
 
 const Equations = ({ equations, setEquations }) => {
     return (
@@ -14,6 +15,7 @@ const Equations = ({ equations, setEquations }) => {
                 value={equations}
                 onChange={(e) => setEquations(e.target.value)}
             ></textarea>
+            <p className="input-error">ERROR: </p>
         </div>
     );
 };
@@ -49,7 +51,7 @@ const InputSection = ({ setSolution }) => {
     const [variables, setVariables] = useState("");
 
     const handleSubmit = () => {
-        const solution = SolveEquations(equations, variables);
+        const solution = InputHandling(equations, variables);
         setSolution(solution);
     };
 
