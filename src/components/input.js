@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import H2HeadingGroup from "../styles/layout";
-import { solveEquations } from "../components/calculation.js";
+import SolveEquations from "../logic/calculation.js";
 
 const Equations = ({ equations, setEquations }) => {
     return (
@@ -38,6 +38,7 @@ const Buttons = ({ onSubmit }) => {
         <div className="buttons-section">
             {H2HeadingGroup(" ", " ")}
             <button id="submit" onClick={onSubmit}>Submit</button>
+            {/* <button id="submit" onClick={()=> {console.log("Submit button clicked")}}>Submit</button> */}
             <button id="clear" onClick={() => window.location.reload()}>Clear</button>
         </div>
     );
@@ -48,7 +49,7 @@ const InputSection = ({ setSolution }) => {
     const [variables, setVariables] = useState("");
 
     const handleSubmit = () => {
-        const solution = solveEquations(equations, variables);
+        const solution = SolveEquations(equations, variables);
         setSolution(solution);
     };
 

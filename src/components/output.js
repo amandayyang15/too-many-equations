@@ -1,6 +1,6 @@
 import * as React from "react"
 import H2HeadingGroup from "../styles/layout"
-import SolveEquations from "../components/calculation.js"
+import SolveEquations from "../logic/calculation.js"
 
 const Preview = () => {
     return (
