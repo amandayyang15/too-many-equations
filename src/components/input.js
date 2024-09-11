@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import H2HeadingGroup from "../styles/layout";
-import { solveEquations } from "../components/calculation";
+import { solveEquations } from "../components/calculation.js";
 
 const Equations = ({ equations, setEquations }) => {
     return (
@@ -44,7 +44,7 @@ const Buttons = ({ onSubmit }) => {
 };
 
 const InputSection = ({ setSolution }) => {
-    const [equations, setEquations] = useState("");
+    const [equations, setEquations] = useState(""); //useState takes intital state as argument and returns array containing state variable (equations) and state updater fxn (setEquations)
     const [variables, setVariables] = useState("");
 
     const handleSubmit = () => {

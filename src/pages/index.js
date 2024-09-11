@@ -1,22 +1,25 @@
-import * as React from "react"
-import GlobalStyle from "../styles/global-styles"
-import Header from "../components/header-footer"
-import Equations from "../components/input"
-import OutputSection from "../components/output"
+import React, { useState } from "react";
+import GlobalStyle from "../styles/global-styles";
+import Header from "../components/header-footer";
+import InputSection from "../components/input";
+import OutputSection from "../components/output";
 
 const IndexPage = () => {
-  return (
-    <>
-      <GlobalStyle />
-      <main>
-        <Header />
-        <Equations />
-        <OutputSection />
-      </main>
-    </>
-  )
-}
+    const [solution, setSolution] = useState(null);
+    const [variables, setVariables] = useState([]);
 
-export default IndexPage
+    return (
+        <>
+            <GlobalStyle />
+            <main>
+                <Header />
+                <InputSection setSolution={setSolution} setVariables={setVariables} />
+                <OutputSection />
+            </main>
+        </>
+    );
+};
 
-export const Head = () => <title>Too Many Equations</title>
+export default IndexPage;
+
+export const Head = () => <title>Too Many Equations</title>;
