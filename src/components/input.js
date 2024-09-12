@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import H2HeadingGroup from "../styles/layout";
-import SolveEquations from "../logic/calculation.js";
 import InputHandling from "../logic/input-handling.js";
 
 const Equations = ({ equations, setEquations }) => {
